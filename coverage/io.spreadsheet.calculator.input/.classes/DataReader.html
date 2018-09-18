@@ -1,0 +1,86 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DataReader</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">io.spreadsheet.calculator.input</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DataReader (io.spreadsheet.calculator.input)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">DataReader$$EnhancerByMockitoWithCGLIB$$549e438b</td>
+  </tr>
+  <tr>
+    <td class="name">DataReader$hasNext$1</td>
+  </tr>
+  <tr>
+    <td class="name">DataReader$readData$0</td>
+  </tr>
+  <tr>
+    <td class="name">DataReader$readHeader</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package io.spreadsheet.calculator.input;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import io.spreadsheet.calculator.model.DataItem;
+<i>4</i>&nbsp;import io.spreadsheet.calculator.model.Header;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;/**
+<i>7</i>&nbsp; * interface to read input data
+<i>8</i>&nbsp; */
+<i>9</i>&nbsp;public interface DataReader {
+<i>10</i>&nbsp;    /**
+<i>11</i>&nbsp;     * read Header from the underlying stream
+<i>12</i>&nbsp;     * @return Header
+<i>13</i>&nbsp;     */
+<i>14</i>&nbsp;    Header readHeader();
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    /**
+<i>17</i>&nbsp;     * read DataItem from the underlying stream
+<i>18</i>&nbsp;     * @return DataItem
+<i>19</i>&nbsp;     */
+<i>20</i>&nbsp;    DataItem readData();
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    /**
+<i>23</i>&nbsp;     * check if there are more data items to read
+<i>24</i>&nbsp;     * @return true if more DataItem to read, false otherwise.
+<i>25</i>&nbsp;     */
+<i>26</i>&nbsp;    boolean hasNext();
+<i>27</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-09-03 01:08</div>
+</div>
+</body>
+</html>

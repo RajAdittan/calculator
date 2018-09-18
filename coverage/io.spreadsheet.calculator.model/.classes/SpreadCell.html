@@ -1,0 +1,246 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SpreadCell</title>
+  <style type="text/css">
+    @import "../../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">io.spreadsheet.calculator.model</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SpreadCell (io.spreadsheet.calculator.model)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SpreadCell</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (21/ 21)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (54/ 54)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SpreadCell$equals$5</td>
+  </tr>
+  <tr>
+    <td class="name">SpreadCell$exprOf$6</td>
+  </tr>
+  <tr>
+    <td class="name">SpreadCell$from$2</td>
+  </tr>
+  <tr>
+    <td class="name">SpreadCell$getValue$0</td>
+  </tr>
+  <tr>
+    <td class="name">SpreadCell$hashCode$4</td>
+  </tr>
+  <tr>
+    <td class="name">SpreadCell$isValidated$3</td>
+  </tr>
+  <tr>
+    <td class="name">SpreadCell$of</td>
+  </tr>
+  <tr>
+    <td class="name">SpreadCell$valueOf$1</td>
+  </tr>
+  <tr>
+    <td class="name">SpreadCell$valueOf$7</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (21/ 21)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (54/ 54)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package io.spreadsheet.calculator.model;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import static com.google.common.base.Preconditions.checkArgument;
+<i>4</i>&nbsp;import static com.google.common.base.Preconditions.checkNotNull;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public class SpreadCell {
+<i>7</i>&nbsp;    private String id;
+<i>8</i>&nbsp;    private String expr;
+<i>9</i>&nbsp;    private String value;
+<i>10</i>&nbsp;    private boolean validated;
+<i>11</i>&nbsp;    private String errors;
+<i>12</i>&nbsp;
+<b class="fc"><i>13</i>&nbsp;    private SpreadCell(String id) {</b>
+<b class="fc"><i>14</i>&nbsp;        this.id = id;</b>
+<b class="fc"><i>15</i>&nbsp;        this.value = &quot;&quot;;</b>
+<b class="fc"><i>16</i>&nbsp;    }</b>
+<i>17</i>&nbsp;
+<b class="fc"><i>18</i>&nbsp;    private SpreadCell(String id, String expr) {</b>
+<b class="fc"><i>19</i>&nbsp;        this.id = id;</b>
+<b class="fc"><i>20</i>&nbsp;        this.expr = expr;</b>
+<b class="fc"><i>21</i>&nbsp;    }</b>
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    public static SpreadCell of(String id) {
+<b class="fc"><i>24</i>&nbsp;        checkNotNull(id, &quot;specified id is null&quot;);</b>
+<b class="fc"><i>25</i>&nbsp;        return new SpreadCell(id);</b>
+<i>26</i>&nbsp;    }
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    public static SpreadCell from(DataItem item) {
+<b class="fc"><i>29</i>&nbsp;        checkNotNull(item, &quot;specified item is null&quot;);</b>
+<b class="fc"><i>30</i>&nbsp;        String id = generateId(item.getRow(), item.getCol());</b>
+<b class="fc"><i>31</i>&nbsp;        return new SpreadCell(id, item.getValue());</b>
+<i>32</i>&nbsp;    }
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    public static SpreadCell exprOf(SpreadCell cell, String expr) {
+<b class="fc"><i>35</i>&nbsp;        checkNotNull(cell, &quot;specified cell is null&quot;);</b>
+<b class="fc"><i>36</i>&nbsp;        checkNotNull(expr, &quot;specified expr is null&quot;);</b>
+<b class="fc"><i>37</i>&nbsp;        cell.setExpr(expr);</b>
+<b class="fc"><i>38</i>&nbsp;        return cell;</b>
+<i>39</i>&nbsp;    }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    public static SpreadCell valueOf(SpreadCell cell, String value, boolean validated) {
+<b class="fc"><i>42</i>&nbsp;        checkNotNull(value, &quot;specified cell is null&quot;);</b>
+<b class="fc"><i>43</i>&nbsp;        cell.setValue(value);</b>
+<b class="fc"><i>44</i>&nbsp;        cell.setValidated(validated);</b>
+<b class="fc"><i>45</i>&nbsp;        return cell;</b>
+<i>46</i>&nbsp;    }
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    public static SpreadCell valueOf(SpreadCell cell, String value, String errors) {
+<b class="fc"><i>49</i>&nbsp;        checkNotNull(value, &quot;specified cell is null&quot;);</b>
+<b class="fc"><i>50</i>&nbsp;        cell.setValue(value);</b>
+<b class="fc"><i>51</i>&nbsp;        cell.setValidated(true);</b>
+<b class="fc"><i>52</i>&nbsp;        cell.setErrors(errors);</b>
+<b class="fc"><i>53</i>&nbsp;        return cell;</b>
+<i>54</i>&nbsp;    }
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;    public static Integer row(String id) {
+<b class="fc"><i>57</i>&nbsp;        checkNotNull(id);</b>
+<b class="fc"><i>58</i>&nbsp;        Integer row = Integer.valueOf(id.charAt(0)-&#39;A&#39;);</b>
+<b class="fc"><i>59</i>&nbsp;        checkNotNull(row);</b>
+<b class="fc"><i>60</i>&nbsp;        checkArgument(row &gt;-1);</b>
+<b class="fc"><i>61</i>&nbsp;        return row;</b>
+<i>62</i>&nbsp;    }
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    public static Integer column(String id) {
+<b class="fc"><i>65</i>&nbsp;        checkNotNull(id);</b>
+<b class="fc"><i>66</i>&nbsp;        Integer col = Integer.valueOf(id.substring(1));</b>
+<b class="fc"><i>67</i>&nbsp;        checkNotNull(col);</b>
+<b class="fc"><i>68</i>&nbsp;        checkArgument(col &gt;-1);</b>
+<b class="fc"><i>69</i>&nbsp;        return col;</b>
+<i>70</i>&nbsp;    }
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    public boolean isValidated() {
+<b class="fc"><i>73</i>&nbsp;        return validated;</b>
+<i>74</i>&nbsp;    }
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;    public String getId() {
+<b class="fc"><i>77</i>&nbsp;        return id;</b>
+<i>78</i>&nbsp;    }
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;    public String getExpr() {
+<b class="fc"><i>81</i>&nbsp;        return expr;</b>
+<i>82</i>&nbsp;    }
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    public String getValue() {
+<b class="fc"><i>85</i>&nbsp;        return value;</b>
+<i>86</i>&nbsp;    }
+<i>87</i>&nbsp;
+<b class="fc"><i>88</i>&nbsp;    private void setExpr(String expr) { this.expr=expr; }</b>
+<i>89</i>&nbsp;
+<i>90</i>&nbsp;    private void setValue(String value) {
+<b class="fc"><i>91</i>&nbsp;        this.value = value;</b>
+<b class="fc"><i>92</i>&nbsp;    }</b>
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;    private void setValidated(boolean value) {
+<b class="fc"><i>95</i>&nbsp;        this.validated = value;</b>
+<b class="fc"><i>96</i>&nbsp;    }</b>
+<i>97</i>&nbsp;
+<b class="fc"><i>98</i>&nbsp;    private void setErrors(String errors) { this.errors = errors; }</b>
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;    @Override
+<i>101</i>&nbsp;    public boolean equals(Object obj) {
+<b class="fc"><i>102</i>&nbsp;        SpreadCell spreadCell = (SpreadCell)obj;</b>
+<b class="fc"><i>103</i>&nbsp;        checkNotNull(spreadCell, &quot;cast Object to SpreadCell has errors&quot;);</b>
+<i>104</i>&nbsp;        //value equals
+<b class="fc"><i>105</i>&nbsp;        return spreadCell.getId().equals(getId());</b>
+<i>106</i>&nbsp;    }
+<i>107</i>&nbsp;
+<i>108</i>&nbsp;    @Override
+<i>109</i>&nbsp;    public int hashCode() {
+<b class="fc"><i>110</i>&nbsp;        return id.hashCode();</b>
+<i>111</i>&nbsp;    }
+<i>112</i>&nbsp;
+<i>113</i>&nbsp;    @Override
+<i>114</i>&nbsp;    public String toString() {
+<b class="fc"><i>115</i>&nbsp;        return &quot;SpreadCell{&quot; +</b>
+<i>116</i>&nbsp;                &quot;id=&#39;&quot; + id + &#39;\&#39;&#39; +
+<i>117</i>&nbsp;                &quot;, expr=&#39;&quot; + expr + &#39;\&#39;&#39; +
+<i>118</i>&nbsp;                &quot;, value=&#39;&quot; + value + &#39;\&#39;&#39; +
+<i>119</i>&nbsp;                &quot;, validated=&quot; + validated +
+<i>120</i>&nbsp;                &quot;, errors=&quot; + errors +
+<i>121</i>&nbsp;                &#39;}&#39;;
+<i>122</i>&nbsp;    }
+<i>123</i>&nbsp;
+<i>124</i>&nbsp;    static String generateId(Integer row, Integer col) {
+<b class="fc"><i>125</i>&nbsp;        checkArgument(row &gt;-1, &quot;specified row is out of bounds&quot;);</b>
+<b class="fc"><i>126</i>&nbsp;        checkArgument(col &gt;-1, &quot;specified col is out of bounds&quot;);</b>
+<b class="fc"><i>127</i>&nbsp;        return String.format(&quot;%c%d&quot;, &#39;A&#39;+row, col);</b>
+<i>128</i>&nbsp;    }
+<i>129</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-09-03 01:08</div>
+</div>
+</body>
+</html>

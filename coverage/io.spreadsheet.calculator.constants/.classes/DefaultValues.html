@@ -1,0 +1,111 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DefaultValues</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">io.spreadsheet.calculator.constants</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DefaultValues (io.spreadsheet.calculator.constants)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DefaultValues</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (4/ 6)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package io.spreadsheet.calculator.constants;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import io.spreadsheet.calculator.model.DataItem;
+<i>4</i>&nbsp;import io.spreadsheet.calculator.model.Header;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public class DefaultValues {
+<i>7</i>&nbsp;    public static final String PLUS=&quot;+&quot;;
+<i>8</i>&nbsp;    public static final String PLUSPLUS=&quot;++&quot;;
+<i>9</i>&nbsp;    public static final String MINUS=&quot;-&quot;;
+<i>10</i>&nbsp;    public static final String MINUSMINUS=&quot;--&quot;;
+<i>11</i>&nbsp;    public static final String MULTIPLY=&quot;*&quot;;
+<i>12</i>&nbsp;    public static final String DIVIDE=&quot;/&quot;;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    public static final String DEFAULT_SEPARATOR=&quot; &quot;;
+<b class="fc"><i>15</i>&nbsp;    public static final Header DEFAULT_HEADER</b>
+<b class="fc"><i>16</i>&nbsp;            = Header.of(Integer.valueOf(0), Integer.valueOf(0));</b>
+<b class="fc"><i>17</i>&nbsp;    public static final DataItem DEFAULT_DATA</b>
+<b class="fc"><i>18</i>&nbsp;            = DataItem.of(Integer.valueOf(0), Integer.valueOf(0), &quot;&quot;);</b>
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    public static final String CELL_IS_NULL = &quot;specified cell is null&quot;;
+<i>21</i>&nbsp;    public static final String ID_IS_NULL = &quot;specified id is null&quot;;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    /**
+<i>24</i>&nbsp;     * Disable object creation of constant value classes
+<i>25</i>&nbsp;     */
+<b class="nc"><i>26</i>&nbsp;    private DefaultValues() {</b>
+<b class="nc"><i>27</i>&nbsp;    }</b>
+<i>28</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-09-03 01:08</div>
+</div>
+</body>
+</html>

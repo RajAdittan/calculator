@@ -1,0 +1,84 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DataWriter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">io.spreadsheet.calculator.output</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DataWriter (io.spreadsheet.calculator.output)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">DataWriter$$EnhancerByMockitoWithCGLIB$$1202eab8</td>
+  </tr>
+  <tr>
+    <td class="name">DataWriter$writeData$0</td>
+  </tr>
+  <tr>
+    <td class="name">DataWriter$writeData$1</td>
+  </tr>
+  <tr>
+    <td class="name">DataWriter$writeHeader</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package io.spreadsheet.calculator.output;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import io.spreadsheet.calculator.model.DataItem;
+<i>4</i>&nbsp;import io.spreadsheet.calculator.model.Header;
+<i>5</i>&nbsp;import io.spreadsheet.calculator.model.SpreadCell;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;public interface DataWriter {
+<i>8</i>&nbsp;    /**
+<i>9</i>&nbsp;     * Writes header into underlying output stream
+<i>10</i>&nbsp;     * @param header Header
+<i>11</i>&nbsp;     */
+<i>12</i>&nbsp;    void writeHeader(Header header);
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    /**
+<i>15</i>&nbsp;     * Writes input value into underlying output stream to reproduce input
+<i>16</i>&nbsp;     * @param item DataItem
+<i>17</i>&nbsp;     */
+<i>18</i>&nbsp;    void writeData(DataItem item);
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    /**
+<i>21</i>&nbsp;     * Writes output value of the specified SpreadCell into underlying output stream
+<i>22</i>&nbsp;     * @param spreadsheetCell SpreadCell
+<i>23</i>&nbsp;     */
+<i>24</i>&nbsp;    void writeData(SpreadCell spreadsheetCell);
+<i>25</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-09-03 01:08</div>
+</div>
+</body>
+</html>
